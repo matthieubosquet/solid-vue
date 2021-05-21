@@ -1,8 +1,11 @@
-# TypeScript
-Scaffolding TypeScript projects
+# Solid Vue
+
+Scaffolding Solid Vue projects.
 
 ## Install
 
 ```bash
-npm i --save-dev @solid/eslint-config-base @tsconfig/node12 @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-jest eslint-plugin-prettier jest jest-circus prettier ts-jest typescript
+npm i --save-dev @vue/cli-plugin-babel @vue/cli-plugin-eslint @vue/cli-service @vue/compiler-sfc babel-eslint eslint eslint-plugin-vue
+
+npm i core-js vue@next @inrupt/solid-client @inrupt/solid-client-authn-browser
 ```
