@@ -12,7 +12,7 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -20,7 +20,8 @@
     "@inrupt/solid-client": "^1.8.0",
     "@inrupt/solid-client-authn-browser": "^1.8.1",
     "core-js": "^3.12.1",
-    "vue": "^3.0.11"
+    "vue": "^3.0.11",
+    "vuex": "^4.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.13",

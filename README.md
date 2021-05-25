@@ -7,5 +7,5 @@ Scaffolding Solid Vue projects.
 ```bash
 npm i --save-dev @vue/cli-plugin-babel @vue/cli-plugin-eslint @vue/cli-service @vue/compiler-sfc babel-eslint eslint eslint-plugin-vue
 
-npm i core-js vue@next @inrupt/solid-client @inrupt/solid-client-authn-browser
+npm i core-js vue@next vuex@next @inrupt/solid-client @inrupt/solid-client-authn-browser
 ```

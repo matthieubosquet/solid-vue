@@ -1,17 +1,20 @@
 <template>
+  <Session />
   <img
     alt="Vue logo"
     src="./assets/solid.svg"
   >
-  <HelloSolid msg="Hello Solid Vue" />
+  <HelloSolid msg="Solid Vue says hello" />
 </template>
 
 <script>
 import HelloSolid from './components/HelloSolid.vue'
+import Session from './components/Session.vue'
 
 export default {
   components: {
-    HelloSolid
+    HelloSolid,
+    Session
   }
 }
 </script>
