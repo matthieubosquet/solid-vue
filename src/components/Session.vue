@@ -28,8 +28,7 @@ import {
 
 export default {
   async created() {
-    await handleIncomingRedirect();
-    console.log("HANDLE INCOMING REDIRECT")
+    await handleIncomingRedirect({restorePreviousSession: true});
     this.$store.state.fetch = fetch;
     this.update();
   },
