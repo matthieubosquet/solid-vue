@@ -1,10 +1,10 @@
 <template>
-  <Session />
+  <session />
   <img
     alt="Solid logo"
     src="./assets/solid.svg"
   >
-  <HelloSolid msg="Solid Vue says hello" />
+  <hello-solid msg="Solid Vue says hello" />
 </template>
 
 <script lang="ts">

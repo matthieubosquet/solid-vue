@@ -21,7 +21,7 @@ export default defineComponent({
     }
   },
   computed: {
-    profile(): String {
+    profile(): string {
       if (this.$store.state.loggedIn) {
         return this.$store.state.session.info.webId;
       }
