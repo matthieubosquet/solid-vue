@@ -4,16 +4,16 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import {
-  getSolidDataset,
-  getThing,
-  getStringNoLocale,
-  Url
-} from "@inrupt/solid-client";
+import { store, useStore } from '../store'
+import Solid from "../services/SolidDataService";
 
 export default defineComponent({
   props: {
     msg: { default: "Hello", type: String },
+  },
+  setup () {
+    // eslint-disable-next-line
+    const store = useStore();
   },
   data() {
     return {
@@ -22,8 +22,8 @@ export default defineComponent({
   },
   computed: {
     profile(): string {
-      if (this.$store.state.loggedIn) {
-        return this.$store.state.session.info.webId;
+      if (store.state.loggedIn) {
+        return store.state.session?.info.webId ?? "";
       }
       return "";
     }
@@ -31,7 +31,7 @@ export default defineComponent({
   watch: {
     async profile (profile) {
       if (profile && profile !== "") {
-        this.name = await this.read(profile, "http://www.w3.org/2006/vcard/ns#fn") ?? "world";
+        this.name = (await this.getName(profile)) ?? "world";
       }
       else {
         this.name = "world";
@@ -39,8 +39,8 @@ export default defineComponent({
     }
   },
   methods: {
-    async read(thing: string|Url, property: string|Url) {
-      return await getStringNoLocale(getThing(await getSolidDataset(thing), thing) as any, property);
+    async getName(thing: string) {
+      return Solid.getString("http://www.w3.org/2006/vcard/ns#fn", thing)
     }
   },
 })
