@@ -4,7 +4,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { store } from '../store';
 import Solid from "../services/SolidDataService";
 
 export default defineComponent({
@@ -18,8 +17,8 @@ export default defineComponent({
   },
   computed: {
     profile(): string {
-      if (store.state.loggedIn) {
-        return store.state.session?.info.webId ?? "";
+      if (this.$store.state.loggedIn) {
+        return this.$store.state.session?.info.webId ?? "";
       }
       return "";
     }
