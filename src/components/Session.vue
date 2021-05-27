@@ -17,7 +17,8 @@
   </form>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import {
   login,
   logout,
@@ -25,7 +26,7 @@ import {
   getDefaultSession
 } from "@inrupt/solid-client-authn-browser";
 
-export default {
+export default defineComponent({
   async created() {
     await handleIncomingRedirect({restorePreviousSession: true});
 
@@ -45,9 +46,8 @@ export default {
     },
     update() {
       this.$store.state.session = getDefaultSession();
-      console.log("FETCH", this.$store.state.session.fetch)
       this.$store.state.loggedIn = this.$store.state.session.info.isLoggedIn;
     }
   },
-}
+})
 </script>

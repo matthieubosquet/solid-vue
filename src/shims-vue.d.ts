@@ -4,3 +4,11 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+import { Store } from '@/store';
+
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $store: Store;
+  }
+}

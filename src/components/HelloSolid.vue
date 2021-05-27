@@ -2,14 +2,16 @@
   <h1>{{ msg }} {{ name }}</h1>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import {
   getSolidDataset,
   getThing,
-  getStringNoLocale
+  getStringNoLocale,
+  Url
 } from "@inrupt/solid-client";
 
-export default {
+export default defineComponent({
   props: {
     msg: { default: "Hello", type: String },
   },
@@ -19,17 +21,17 @@ export default {
     }
   },
   computed: {
-    profile () {
+    profile(): String {
       if (this.$store.state.loggedIn) {
         return this.$store.state.session.info.webId;
       }
-      return null;
+      return "";
     }
   },
   watch: {
     async profile (profile) {
-      if (profile) {
-        this.name = await this.read(profile, "http://www.w3.org/2006/vcard/ns#fn");
+      if (profile && profile !== "") {
+        this.name = await this.read(profile, "http://www.w3.org/2006/vcard/ns#fn") ?? "world";
       }
       else {
         this.name = "world";
@@ -37,11 +39,11 @@ export default {
     }
   },
   methods: {
-    async read(thing, property) {
-      return await getStringNoLocale(getThing(await getSolidDataset(thing), thing), property);
+    async read(thing: string|Url, property: string|Url) {
+      return await getStringNoLocale(getThing(await getSolidDataset(thing), thing) as any, property);
     }
   },
-}
+})
 </script>
 
 <style scoped>

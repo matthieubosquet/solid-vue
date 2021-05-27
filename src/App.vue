@@ -1,13 +1,13 @@
 <template>
   <Session />
   <img
-    alt="Vue logo"
+    alt="Solid logo"
     src="./assets/solid.svg"
   >
   <HelloSolid msg="Solid Vue says hello" />
 </template>
 
-<script>
+<script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import HelloSolid from './components/HelloSolid.vue'
 import Session from './components/Session.vue'
@@ -18,6 +18,7 @@ import Session from './components/Session.vue'
     Session
   },
 })
+
 export default class App extends Vue {}
 </script>
 
