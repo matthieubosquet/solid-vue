@@ -22,14 +22,13 @@ import {
   login,
   logout,
   handleIncomingRedirect,
-  getDefaultSession,
-  fetch
+  getDefaultSession
 } from "@inrupt/solid-client-authn-browser";
 
 export default {
   async created() {
     await handleIncomingRedirect({restorePreviousSession: true});
-    this.$store.state.fetch = fetch;
+
     this.update();
   },
   methods: {
@@ -46,6 +45,7 @@ export default {
     },
     update() {
       this.$store.state.session = getDefaultSession();
+      console.log("FETCH", this.$store.state.session.fetch)
       this.$store.state.loggedIn = this.$store.state.session.info.isLoggedIn;
     }
   },

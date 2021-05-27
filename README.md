@@ -5,7 +5,7 @@ Scaffolding Solid Vue projects.
 ## Install
 
 ```bash
-npm i --save-dev @vue/cli-plugin-babel @vue/cli-plugin-eslint @vue/cli-service @vue/compiler-sfc babel-eslint eslint eslint-plugin-vue
+npm i --save-dev  @typescript-eslint/eslint-plugin @typescript-eslint/parser @vue/cli-plugin-babel @vue/cli-plugin-eslint @vue/cli-plugin-typescript @vue/cli-service @vue/compiler-sfc @vue/eslint-config-typescript babel-eslint eslint eslint-plugin-vue typescript
 
-npm i core-js vue@next vuex@next @inrupt/solid-client @inrupt/solid-client-authn-browser
+npm i core-js vue@next vuex@next vue-class-component@next @inrupt/solid-client @inrupt/solid-client-authn-browser
 ```

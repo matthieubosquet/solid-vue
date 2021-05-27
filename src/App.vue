@@ -8,15 +8,17 @@
 </template>
 
 <script>
+import { Options, Vue } from 'vue-class-component';
 import HelloSolid from './components/HelloSolid.vue'
 import Session from './components/Session.vue'
 
-export default {
+@Options({
   components: {
     HelloSolid,
     Session
-  }
-}
+  },
+})
+export default class App extends Vue {}
 </script>
 
 <style>
