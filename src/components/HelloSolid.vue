@@ -4,16 +4,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { store, useStore } from '../store'
+import { store } from '../store';
 import Solid from "../services/SolidDataService";
 
 export default defineComponent({
   props: {
     msg: { default: "Hello", type: String },
-  },
-  setup () {
-    // eslint-disable-next-line
-    const store = useStore();
   },
   data() {
     return {

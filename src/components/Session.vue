@@ -25,6 +25,7 @@ import {
   handleIncomingRedirect,
   getDefaultSession
 } from "@inrupt/solid-client-authn-browser";
+import { store } from "../store";
 
 export default defineComponent({
   async created() {
@@ -46,7 +47,7 @@ export default defineComponent({
     },
     update() {
       this.$store.state.session = getDefaultSession();
-      this.$store.state.loggedIn = this.$store.state.session.info.isLoggedIn;
+      store.state.loggedIn = store.state.session?.info.isLoggedIn ?? false;
     }
   },
 })

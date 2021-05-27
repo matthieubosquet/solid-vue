@@ -1,8 +1,8 @@
-import type { Session } from "@inrupt/solid-client-authn-browser"
-import { InjectionKey } from 'vue'
-import { createStore, useStore as baseUseStore, Store } from 'vuex'
+import type { Session } from "@inrupt/solid-client-authn-browser";
+import { InjectionKey } from "vue";
+import { createStore, useStore as baseUseStore, Store } from "vuex";
 
-interface State {
+export interface State {
   loggedIn: boolean,
   session: Session
 }
@@ -11,8 +11,7 @@ export const key: InjectionKey<Store<State>> = Symbol()
 
 export const store = createStore<Partial<State>>({
   state: {
-    loggedIn: false,
-    session: undefined
+    loggedIn: false
   },
   mutations: {},
   actions: {},
@@ -20,5 +19,5 @@ export const store = createStore<Partial<State>>({
 })
 
 export function useStore () {
-  return baseUseStore(key)
+  return baseUseStore(key);
 }
