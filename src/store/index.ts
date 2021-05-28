@@ -4,7 +4,8 @@ import { createStore, useStore as baseUseStore, Store } from "vuex";
 
 export interface State {
   loggedIn: boolean,
-  session: Session
+  session: Session,
+  profile: { name: string, webId: string }
 }
 
 export const key: InjectionKey<Store<State>> = Symbol()

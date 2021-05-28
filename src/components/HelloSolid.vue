@@ -26,7 +26,7 @@ export default defineComponent({
   watch: {
     async profile (profile) {
       if (profile && profile !== "") {
-        this.name = (await this.getName(profile)) ?? "world";
+        this.name = (await this.getValues(profile)).map(quad => quad.value.toString())[0] ?? "world";
       }
       else {
         this.name = "world";
@@ -34,8 +34,8 @@ export default defineComponent({
     }
   },
   methods: {
-    async getName(thing: string) {
-      return Solid.getString("http://www.w3.org/2006/vcard/ns#fn", thing)
+    async getValues(thing: string) {
+      return Solid.getValues("http://www.w3.org/2006/vcard/ns#fn", { thing })
     }
   },
 })
