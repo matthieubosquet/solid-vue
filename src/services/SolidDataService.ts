@@ -22,7 +22,7 @@ export default {
     const dataset: SolidDataset = typeof options?.dataset === "object" ? options?.dataset : await this.getDataset(options?.dataset ?? thingUrl, options?.session ? { session: options.session } : undefined);
     return getThing(dataset, thingUrl)
   },
-  async getValues(property: string, options: Partial<Pick<SolidDataServiceOptions, "dataset" | "session">> & { thing: ThingPersisted | string }): Promise<Quad_Object[]> {
+  async getTerms(property: string, options: Partial<Pick<SolidDataServiceOptions, "dataset" | "session">> & { thing: ThingPersisted | string }): Promise<Quad_Object[]> {
     const thing: ThingPersisted | null = typeof options.thing === "object" ? options.thing : await this.getThing(options.thing, options);
     if (!thing) return [];
     return getTermAll(thing, property);
